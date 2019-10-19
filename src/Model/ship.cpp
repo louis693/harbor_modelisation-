@@ -1,9 +1,17 @@
 #include "ship.h"
-void ship::send_human()
-{
-    cout<<sc_time_stamp().to_string()<<"\t"<<"Transport got human!"<<endl;
+#include <random>
+
+void fish_ship::fish_generator(){
+    fish=rand()%250;
+    tx_fish_to_staff_port->put_product(fish);
 }
 
-SC_CTOR(ship){
-    cout<<"Ship was created!"<<endl
-};
+
+
+
+void fish_ship::put_product(sc_int<8> product){
+    fish=product;
+}
+sc_int<8> fish_ship::get_product(){
+    return fish;
+}

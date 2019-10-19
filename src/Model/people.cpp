@@ -1,16 +1,13 @@
 #include "people.h"
 
-void people::human_generator(){
-    while(true){
-        hum_to_ship->send_human();
-        hum_to_transport->send_human();
-        hum_to_building->send_human();
-
-        wait(1,SC_NS);
-    }
+void staff::get_fish(){
+    fish_in_hand = rx_fish_from_ship_port->get_product();
 }
 
-SC_CTOR(people){
-    cout<<"Human created!"<<endl;
-    SC_THREAD(human_generator)
-};
+
+void staff::put_product(sc_int<8> product){
+    fish_in_hand=product;
+}
+sc_int<8> staff::get_product(){
+    return fish_in_hand;
+}
