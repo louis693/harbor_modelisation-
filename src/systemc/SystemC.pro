@@ -2,7 +2,7 @@
 TEMPLATE = lib
 TARGET = SystemC
 DESTDIR = $$PJDIR/lib
-CONFIG += staticlib c++11
+CONFIG += staticlib c++17
 INCLUDEPATH += ./src
 DEPENDPATH += ./src
 OBJECTS_DIR = $$PJDIR/temp/$$TARGET
