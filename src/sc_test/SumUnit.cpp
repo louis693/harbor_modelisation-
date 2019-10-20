@@ -5,23 +5,23 @@ void SumUnit::sum() {
 	in_data1 = read_ch1();
 	if (in_data1 == -1) {
 		in_data1 = 0;
-	cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Read CH1 imposible - EOP " << endl;
+		cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Read CH1 imposible - EOP " << endl;
 	}
 	else
-
 		cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Read CH1 = " << in_data1 << endl;
-	
-		
+
+
 	in_data2 = read_ch2();
 	if (in_data2 == -1) {
 		in_data2 = 0;
 		cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Read CH2 imposible - EOP " << endl;
 	}
 	else
-	cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Read CH2 = " << in_data2 << endl;
+		cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Read CH2 = " << in_data2 << endl;
+	
 	pkg = 0;
 	pkg = in_data1 + in_data2;
-	cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Sum: " << in_data1 <<" + " <<in_data2<<" = "<<pkg<< endl;
+	cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Sum: " << in_data1 << " + " << in_data2 << " = " << pkg << endl;
 	cout << "[Sum unit]        | <" << sc_time_stamp() << "> | Send CH1 = " << in_data1 << endl;
 	sum_out->write_ch1(pkg);
 }

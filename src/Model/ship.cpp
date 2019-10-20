@@ -2,17 +2,21 @@
 #include <random>
 
 void FishShip::fish_generator(){
-    fish=rand()%250;
-    tx_fish_to_staff_port->put_product(fish);
+	 fishtank = new fish[10];
+	
+	int i = 0;
+	while (i<10){
+		tx_fish_to_staff_port->put_product(fishtank[i]);
+		i++;
+		wait(2, SC_NS);
+	}
 }
 
 
-void FishShip::put_product(sc_int<8> product){
-    fish=product;
-	nw_e.notify();
+void FishShip::put_product(fish product){
 }
 
-sc_int<8> FishShip
-::get_product(){
-    return fish;
+fish FishShip ::get_product(){
+	fish a;
+	return a;
 }

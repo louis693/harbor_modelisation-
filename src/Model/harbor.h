@@ -21,7 +21,6 @@ public:
 		m_staff(new staff ("Staff")),
         m_FishShip(new FishShip ("FishShip"))
     {
-		
 		m_FishShip->tx_fish_to_staff_port.bind(*m_staff);
 		m_FishShip->schedule(workclock);
      

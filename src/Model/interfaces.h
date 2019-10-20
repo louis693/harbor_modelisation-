@@ -1,17 +1,18 @@
 #ifndef intefaces_h
 #define intefaces_h
 #include "systemc.h"
+#include "product.h"
 
 class radio_channel : virtual public sc_interface {
 public:
-    virtual void send_message(sc_int<8> message) = 0;
-    virtual sc_int<8> recv_message() = 0;
+    virtual void send_message(fish message) = 0;
+    virtual fish recv_message() = 0;
 };
 
 class staff_hands : virtual public sc_interface {
 public:
-    virtual void put_product(sc_int<8> product) = 0;
-    virtual sc_int<8> get_product() = 0;
+    virtual void put_product(fish product) = 0;
+    virtual fish get_product() = 0;
 };
 /*
 

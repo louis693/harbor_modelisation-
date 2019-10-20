@@ -1,16 +1,16 @@
 #ifndef SHIP_H
 #define SHIP_H
 #include "systemc.h"
+#include "product.h"
 #include "interfaces.h"
 #include <iostream>
 
 
 class FishShip : public sc_module, public staff_hands {
 public:
-//    sc_port<radio_channel> tx_message_to_radio_base_port;
     sc_port<staff_hands> tx_fish_to_staff_port;
 	sc_in_clk schedule;
-    sc_int<8> fish;
+    fish *fishtank;
 	sc_event nw_e;
 
     SC_HAS_PROCESS(FishShip);
@@ -22,10 +22,11 @@ public:
     }
 
 
-    void put_product(sc_int<8> product);
-    sc_int<8> get_product();
+    void put_product(fish product);
+	fish get_product();
 
     void fish_generator();
+	
 };
 
 
