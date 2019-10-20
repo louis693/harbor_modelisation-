@@ -6,29 +6,26 @@
 
 class staff : public sc_module, public staff_hands {
 public:
-    sc_port <staff_hands> rx_fish_from_ship_port;
+  //  sc_port <staff_hands> rx_fish_from_ship_port;
 
     sc_int<8> fish_in_hand;
+	sc_event nw_e;
 
-    SC_HAS_PROCESS(staff);
+	void get_fish();
 
-    staff (sc_module_name name) : sc_module (name) {
+  /*  SC_HAS_PROCESS(staff);
+
+    staff (sc_module_name name) : sc_module (name) */ SC_CTOR (staff) {
         SC_THREAD (get_fish);
-        cout << "Staff was created!" << endl;
-       // sensitive<<warehouse;
+        cout << "\t[Staff] was created!" << endl;
+		dont_initialize();
+        sensitive<< nw_e;
     }
 
 
     void put_product(sc_int<8> product);
     sc_int<8> get_product();
 
-
-    void get_working_message();
-    void get_fish();
-
-    void get_full_capacity_message();
-    void send_unloading_message();
-    void send_fish_to_truck();
 
 };
 
